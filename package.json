@@ -23,7 +23,7 @@
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "lucide-react": "^0.258.0",
-    "mongodb": "^4.8.1",
+    "mongodb": "^5.6.0",
     "mongodb-client-encryption": "^2.8.0",
     "mongoose": "^7.3.1",
     "next": "13.4.7",
