@@ -23,7 +23,8 @@ const AccountMenu = (): React.ReactElement => {
     } = useContext(HeaderBarContext) as HeaderBarType; 
 
     const checkIfClickedOutside = (evt: Event): void => {
-        if (!MenuRef.current?.classList.contains("fadeOut")
+        var isMenuClosed = MenuRef.current?.classList.contains("fadeOut") || MenuRef.current?.classList.contains("firstFrame")
+        if (!isMenuClosed
             && evt.target != MenuRef.current
             && evt.target != AccountLinkRef.current
             && !AccountLinkRef.current?.contains(evt.target as Node)
@@ -41,14 +42,15 @@ const AccountMenu = (): React.ReactElement => {
         }
     }, [MenuRef.current])
 
-    const animationStyle = "fadeOut transition-all duration-1000 animationMode"
+  //  const animationStyle = "fadeOut transition-all duration-1000 animationMode"
 
+    const animationStyle = "transition-all duration-1000 animationMode"
 
     return (
         <div
             id="AccountMenu"
             ref={MenuRef}
-            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-10 ${animationStyle}`}
+            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-10 firstFrame ${animationStyle}`}
         >
             <Suspense fallback={<h2>Loading...</h2>}>
                 <MemberComponent

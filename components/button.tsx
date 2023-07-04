@@ -133,6 +133,18 @@ const GithubRegistrationButton = (props: ButtonType): React.ReactElement => {
     )
 }
 
+const BackButton = (props: {customStyle?: string}) => {
+    const {
+        customStyle,
+    } = props;
+    const router = useRouter(); 
+    return (
+        <button className={`btn-secondary ${customStyle}`}
+            onClick={()=>router.back()}
+        >Go Back</button>
+)
+}
+
 type ButtonType= {
     customStyle?: string,
     label?: string, 
@@ -145,4 +157,5 @@ export {
     GoogleRegistrationButton, 
     GoSignUp,
     GithubRegistrationButton, 
+    BackButton,
 };     

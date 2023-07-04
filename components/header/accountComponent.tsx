@@ -9,6 +9,8 @@ import {
     AccountLink,
     HomeLink,
     GoAllUsersLink, 
+    GoAboutPageLink,
+    GoSignUpLink, 
 } from './menuLinks';
 import dynamic from 'next/dynamic';
 const AccountMenu = dynamic(() => import('./AccountMenu'), {
@@ -26,15 +28,16 @@ const Component = () : React.ReactElement  => {
             id="DesktopMenuLinks"
             className={DesktopMenuLinks}
         >
-            <HomeLink />
-            <GoAllUsersLink />
-            {session &&
+            <GoAboutPageLink />
+            {session ?
                 <>
                     <AccountLink
-                        label={session?.user?.name}
+                    label={session?.user?.name}
                     />
                     <AccountMenu />
                 </>
+                :
+                <GoSignUpLink />
             }
         </div>
     )

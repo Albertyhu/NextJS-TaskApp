@@ -28,17 +28,17 @@ export default async function RootLayout({
     await db.connect(); 
     let session: SessionInterface | null = await getServerSession(authOptions as NextAuthOptions); 
     let parsedSession = await JSON.parse(JSON.stringify(session)); 
-    console.log("session: ", session)
+    console.log("retrieved session: ", session)
     return (
         <html lang="en">
             <body
-            className={`w-full h-full min-h-screen relative inset-0 bg-no-repeat bg-cover bg-center mt-[95px]`}
+            className={`w-full h-full min-h-screen relative inset-0 bg-no-repeat bg-cover bg-center mt-[150px]`}
             >
                 <AppContextComponent session={parsedSession}>
                     <ContainerWrapper>
                         <HeaderBar />
                         <MessageComponent />
-                        <main className="flex min-h-screen flex-col items-center">
+                        <main className="block min-h-screen flex-col items-center">
                             {children}
                         </main>
                     </ContainerWrapper>

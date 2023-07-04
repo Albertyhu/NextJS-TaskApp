@@ -1,18 +1,20 @@
 import dynamic from 'next/dynamic';
-import { GoogleRegistrationButton } from "@/components/button";
-import { GoSignIn } from '@/components/button'; 
+import {
+    GoSignIn, 
+    BackButton, 
+} from '@/components/button'; 
 import LoadingComponent from '@/components/loadingComponent'; 
 const SignUpForm = dynamic(() => import('./form'), {
     loading: () => <LoadingComponent entirePage={true}  />
 }); 
+import {
+    GoogleRegistrationButton,
+    GithubRegistrationButton,
+} from "@/components/button";
 
 const Panel = dynamic(() => import("@/components/panel"));
 
-type RenderSignUpProps = {
-
-}
-
-const RenderSignUp = (props: RenderSignUpProps): React.ReactElement => {
+const RenderSignUp = (): React.ReactElement => {
 
     const ButtonStyle = `rounded-full px-[10px] py-1 sm:px-[12px] active:translate-x-[5px]
     active:translate-y-[5px] cursor-pointer border-white border-2 
@@ -22,11 +24,18 @@ const RenderSignUp = (props: RenderSignUpProps): React.ReactElement => {
     return (
         <Panel>
             <SignUpForm />
-            <hr className="my-[25px] h-[2px] border-[2px] border-black" />
-            <h2 className="my-10 text-center text-lg">Already have an account with us?</h2>
-            <GoSignIn
-                customStyle={ButtonStyle}
-            />
+            <hr className="bg-slate-500 mx-auto w-11/12 border-2" />
+            <h2
+                className ="my-10 text-center"
+            >Or sign up with various platforms</h2>
+            <div
+                className = "mb-10"
+            >
+                <GoogleRegistrationButton customStyle={"my-5"} />
+                <GithubRegistrationButton customStyle={"my-5"} />
+            </div>
+            <BackButton />
+
         </Panel>
     )
 }

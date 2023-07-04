@@ -1,11 +1,11 @@
 import {
-    GoSignInLink, 
+    GoSignUpLink 
 } from './menuLinks';
 
 const GuestComponent = () =>{
     return(
         <>
-            <GoSignInLink />
+            <GoSignUpLink />
         </>
     )
 }

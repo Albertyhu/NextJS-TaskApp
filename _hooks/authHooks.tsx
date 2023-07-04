@@ -93,9 +93,10 @@ const SubmitHooks = ({
                     await signIn("credentials", {
                         email: result.email,
                         name: result.username,
+                        password,
                         image: result.profile_pic,
                         ObjectId: result._id,
-                        isNewAccount: true,
+                        isNewUser: true,
                     })
                 }
             })
@@ -170,8 +171,31 @@ const ServerReadHooks = () => {
             console.log("RetrieveID error: ", error.message as string)
         }
     }
+
+    const ValidateCredentials = async ( email: any, password: any ) : Promise<boolean> => {
+        try {
+            const fetchURL = `api/validate_cred/${email.toString()}/${password.toString()}`
+            //const response = await axios.get(`api/validate_cred/${email}/${password}`);
+            //const result = response.data; 
+            const response = await fetch(fetchURL, {
+                method: "GET", 
+            })
+            const result = await response.json(); 
+            if (response.status !== 200) {
+                //throw new Error(result.error) 
+                return false; 
+            }
+            return true;  
+        } catch (error) {
+            console.log("ValidateCredentials error: ", error.message)
+            //throw new Error(error) 
+            return false; 
+        }
+    }
+
     return {
-        RetrieveID
+        RetrieveID,
+        ValidateCredentials
     }
 }
 
@@ -199,4 +223,5 @@ export {
     SubmitHooks,
     ServerReadHooks,
     ServerWriteHooks, 
+
 }

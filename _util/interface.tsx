@@ -107,3 +107,21 @@ export interface CreateNewAccountInt {
     email: string | null | undefined,
     image: any | undefined,
 }
+
+
+export interface CustomCredentials extends Record<"username" | "password", string> {
+    email: string,
+    password: string,  
+    isNewUser: boolean,
+    image?: imageType,
+    csrfToken?: string,
+    ObjectId: string, 
+
+}
+
+//export interface CustomCredentials {
+//    name: string,
+//    email: string,
+//    image: imageType,
+//    csrfToken?: string,
+//}

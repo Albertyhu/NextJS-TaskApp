@@ -2,10 +2,10 @@ import { Base64Hooks } from './imageHooks'
 import {
     userInterface,
 } from '@/_util/interface';
-import type { GetServerSideProps } from 'next'
 import axios from 'axios'; 
 import db from '@/lib/mongooseConnect';
 import Users from '@/model/user';
+
 
 
 const UserHooks = () => {
@@ -131,6 +131,7 @@ const UserServerHooks = () => {
         }
     }
 
+ 
     return {RetrieveUsers}
 }
 

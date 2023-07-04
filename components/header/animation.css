@@ -7,9 +7,9 @@
         display: grid;
         opacity: 0.5;
     }
-    50% {
+/*    50% {
         opacity: 0.5;
-    }
+    }*/
     100% {
         opacity: 1.0;
     }
@@ -19,11 +19,9 @@
     0% {
         opacity: 1.0;
     }
-
-    50% {
+/*    50% {
         opacity: 0.5;
-    }
-
+    }*/
     100% {
         opacity: 0.0;
         display: hidden
@@ -32,7 +30,7 @@
 
 .animationMode {
     animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
+   /* animation-timing-function: ease-out;*/
 }
 
 
@@ -44,4 +42,9 @@
 .fadeOut {
     animation-name: fadeOutFrames;
     animation-duration: var(--MenuDur);
+}
+
+.firstFrame {
+    opacity: 0.0;
+    display: hidden
 }

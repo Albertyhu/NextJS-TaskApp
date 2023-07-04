@@ -52,6 +52,25 @@ const GoSignInLink = (): React.ReactElement => {
     )
 }
 
+const GoSignUpLink = (): React.ReactElement => {
+    const router = useRouter()
+    return (
+        <div
+            className="block md:inline-block"
+            onClick={() => router.push("/signup")}>Sign Up</div>
+    )
+}
+
+
+const GoAboutPageLink = (): React.ReactElement => {
+    const router = useRouter()
+    return (
+        <div
+            className="block md:inline-block"
+            onClick={() => router.push("/about")}>About</div>
+    )
+}
+
 
 type AccountLinkType = {
     label: string, 
@@ -71,7 +90,7 @@ const AccountLink = (props: AccountLinkType): React.ReactElement => {
         <div
             ref={AccountLinkRef}
             className="inline-block select-none"
-            onClick={()=>openMenu(MenuRef.current)}>{label}</div>
+            onClick={()=>openMenu(MenuRef.current)}>{label ? label : "Account"}</div>
     )
 }
 
@@ -80,6 +99,8 @@ export {
     LogoComponent,
     HomeLink, 
     GoSignInLink, 
+    GoSignUpLink, 
     AccountLink, 
     GoAllUsersLink, 
+    GoAboutPageLink,
 }

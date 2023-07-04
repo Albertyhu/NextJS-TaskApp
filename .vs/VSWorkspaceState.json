@@ -2,16 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\api",
-    "\\app\\api\\get_one_user",
-    "\\app\\api\\get_one_user\\[user_name]",
-    "\\app\\api\\get_users",
+    "\\app\\about",
     "\\app\\users",
-    "\\app\\users\\[username]",
     "\\components",
-    "\\components\\header",
-    "\\components\\header\\mobile"
+    "\\components\\ui",
+    "\\_assets",
+    "\\_assets\\images",
+    "\\_hooks",
+    "\\_util"
   ],
-  "SelectedNode": "\\components\\button.tsx",
+  "SelectedNode": "\\tsconfig.json",
   "PreviewInSolutionExplorer": false
 }
