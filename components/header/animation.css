@@ -1,0 +1,47 @@
+:root {
+    --MenuDur: 200ms; 
+}
+
+@keyframes fadeInFrames {
+    0% {
+        display: grid;
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes fadeOutFrames {
+    0% {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.0;
+        display: hidden
+    }
+}
+
+.animationMode {
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+
+.fadeIn { 
+    animation-name: fadeInFrames; 
+    animation-duration: var(--MenuDur); 
+}
+
+.fadeOut {
+    animation-name: fadeOutFrames;
+    animation-duration: var(--MenuDur);
+}

@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\api\\tasks",
+    "\\app\\api\\tasks\\addTask",
+    "\\app\\api\\tasks\\addTask\\[...slug]",
+    "\\app\\users",
+    "\\app\\users\\[username]",
+    "\\components",
+    "\\components\\todoComponents\\addTask",
+    "\\_assets",
+    "\\_assets\\icons"
+  ],
+  "SelectedNode": "\\components\\messageComponent.tsx",
+  "PreviewInSolutionExplorer": false
+}

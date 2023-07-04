@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply rounded-[15px] p-[10px] active:translate-x-[5px] active:translate-y-[5px] cursor-pointer border-none text-center w-fit select-none text-black mx-auto hover:bg-[#a2a2a2] bg-[#dbdbdb] box_shadow whitespace-nowrap [&>*]:inline-flex block;
+    }
+
+    .btn-secondary {
+        @apply rounded-[15px] p-[10px] active:translate-x-[5px] active:translate-y-[5px] cursor-pointer border-black border-2 text-center w-fit select-none text-white mx-auto hover:bg-[#535353] bg-[#333333] box_shadow whitespace-nowrap [&>*]:inline-flex block;
+    }
+
+    .btn-delete {
+        @apply rounded-[15px] p-[10px] active:translate-x-[5px] active:translate-y-[5px] cursor-pointer text-center w-fit select-none text-white mx-auto hover:bg-[#FF3333] bg-[#E31010] box_shadow;
+    }
+
+    .btn-standard {
+        @apply rounded-[15px] p-[10px] active:translate-x-[5px] active:translate-y-[5px] cursor-pointer border-none text-center w-fit h-fit select-none m-auto hover:bg-[#a2a2a2] box_shadow whitespace-nowrap block;
+    }
+
+    .btn-submit {
+        @apply !active:bg-[#C6C6C6] border-[#dbdbdb] border-2 text-black mx-auto hover:bg-gray-300 !bg-[#dbdbdb] select-none;
+    }
+
+    .btn-cancel {
+        @apply h-fit active:bg-[#4B4B4B] p-[10px] border-white border-2 text-white mx-auto hover:bg-gray-300 !bg-[#333333] rounded-[15px] box_shadow block;
+    }
+
+    .btn-add {
+        @apply rounded-[15px] p-[10px] active:translate-x-[5px] active:translate-y-[5px] text-base cursor-pointer border-none text-center w-fit select-none text-white mx-auto hover:bg-[#a2a2a2] bg-[#888888] box_shadow whitespace-nowrap [&>*]:inline-flex [&>img]:ml-5;
+    }
+    /*This is a style to be applied to buttons with out borders or background color*/
+    .actionBarLink {
+        @apply text-base hover:underline text-[#333333] bg-none border-none flex m-auto cursor-pointer;
+    }
+
+    .basic_formInput {
+        @apply text-lg border-black border-[1px] rounded bg-[#f2e798];
+    }
+    /*An empty field for the error message to be revealed*/
+    .ErrorDiv {
+        @apply min-h-[25px] w-full grow relative;
+    }
+
+    .MessageDiv {
+        @apply relative w-full h-full;
+    }
+    /*Styling for the error message*/
+    .ErrorMessageTW {
+        @apply text-[#e0200d] text-[12px] text-center static top-[-20px] left-0 right-0 transition-[transform_opacity] ease-out;
+    }
+
+    .initialFormError {
+        @apply opacity-0 translate-y-[-20px];
+    }
+
+    .FadeInFormError {
+        @apply opacity-100 translate-y-[0px];
+    }
+
+    .FadeOutFormError {
+        @apply opacity-0 translate-y-[20px];
+    }
+
+    .H1Style {
+        @apply text-center text-2xl font-bold;
+    }
+
+    .FormStyle {
+        @apply [&>div>label]:text-black [&>div>input]:rounded-lg [&>div]:w-full [&>div]:my-[10px] [&>div>input]:pl-0 [&>div>input]:bg-[rgba(0,0,0,0)] [&>div>input]:text-black [&>div>input]:border-white [&>div>input]:border-[1px] rounded-md [&>div>input]:placeholder:text-[#545454] text-2xl [&>div>input]:placeholder:text-base;
+    }
+
+    .CategoryPanel {
+        @apply;
+    }
+
+    .buttonIcons {
+        @apply w-[30px] h-[30px] m-auto hidden md-2:inline-block;
+    }
+
+    .ContentWrapper {
+        @apply w-11/12 mx-auto;
+    }
+    /** Post Panel*/
+    .PostPanel {
+        @apply rounded-lg w-full mx-auto mb-[20px] bg-[#ffffff] cursor-pointer;
+    }
+
+    .fallbackInput {
+        @apply text-xl text-black text-center mx-auto;
+    }
+
+    .selectedPhoto {
+        @apply before:border-4 before:border-black before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] before:z-[10] before:absolute before:object-cover before:top-0 before:left-0 before:right-0;
+    }
+
+    .adminButtonScrollStyle {
+        @apply lg:before:bg-[#ffffff] lg:before:h-[150px] lg:before:opacity-100;
+    }
+
+    .adminButtonInitial {
+        @apply lg:before:h-[0];
+    }
+
+    .box_shadow_bottom {
+        @apply before:shadow-[0px_15px_10px_-15px_#111];
+    }
+}
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 215 20.2% 65.1%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+ 
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+    background-image: url('../_assets/images/flower.jpg')
+}
+
+.box_shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.Message {
+    background-color: #ECECEC;
+    border-radius: 15px;
+    color: #2e2e2e;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    text-align: center;
+    opacity: 0.0;
+    position: fixed;
+    transform: translateY(-20px);
+    transition: opacity 1s ease-in, transform 500ms ease-in !important;
+    z-index: 99;
+    width: 50%;
+    padding: 15px 15px;
+    left: 25%;
+}
+
+.MessageFadeIn {
+    opacity: 1.0;
+    transform: translateY(100px); 
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+
+.MessageFadeOut {
+    opacity: 0.0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
