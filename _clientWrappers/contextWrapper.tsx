@@ -35,15 +35,21 @@ const AppContextComponent = ({ children, session }: contextInterface ): React.Re
         taskList,
         setList, 
     } 
-    const userId = session?.user?.ObjectId; 
+    const [userId, setID] = useState<string | undefined>(session?.user?.ObjectId); 
 
     const { SetTaskListByUserID } = ReadHooks({ userId, setMessage, setLoading })
 
+    //useEffect(() => {
+    //    if (session) {
+    //        SetTaskListByUserID({ setList })
+    //    }
+    //}, [session])
+
     useEffect(() => {
-        if (session) {
+        if (userId) {
             SetTaskListByUserID({ setList })
         }
-    }, [session])
+    }, [userId])
 
     return (
         <AppContext.Provider value={context}>

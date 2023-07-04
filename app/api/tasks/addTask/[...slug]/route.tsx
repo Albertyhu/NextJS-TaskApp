@@ -21,7 +21,7 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
         finished: false,
     }
     try {
-        await db.connect();
+       // await db.connect();
         const newTask = new Task(taskObj); 
         const savedTask = await newTask.save(); 
         if (!savedTask) {

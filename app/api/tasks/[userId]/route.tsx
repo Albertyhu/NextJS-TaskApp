@@ -20,7 +20,7 @@ export async function GET(req: NextRequest, { params }: paramsType) {
     const userId = params.userId; 
     
     try {
-        await db.connect();
+      //  await db.connect();
         const user = await User.findById(userId)
             .select("tasks")
             .populate({

@@ -117,6 +117,7 @@ const UserHooks = () => {
 }
 
 const UserServerHooks = () => {
+    //server function
     const RetrieveUsers = async () => {
         try {
            // await db.connect();
@@ -129,6 +130,7 @@ const UserServerHooks = () => {
             return [];
         }
     }
+
     return {RetrieveUsers}
 }
 

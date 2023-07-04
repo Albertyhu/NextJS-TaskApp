@@ -10,6 +10,7 @@ import ContainerWrapper from '@/_clientWrappers/containerWrapper';
 import dynamic from 'next/dynamic';
 import MessageComponent from '@/components/messageComponent'
 import LoadingComponent from "@/components/loadingComponent"; 
+import db from "@/lib/mongooseConnect"; 
 const HeaderBar = dynamic(() => import("@/components/header") as any, {
     loading: () => <div className="bg-black min-h-[50px] w-full top-0">Loading...</div>,
 })
@@ -24,15 +25,16 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
     }) {
+    let connection = await db.connect(); 
     let session: SessionInterface | null = await getServerSession(authOptions as NextAuthOptions); 
-
+    let parsedSession = await JSON.parse(JSON.stringify(session)); 
     console.log("session: ", session)
     return (
         <html lang="en">
             <body
             className={`w-full h-full min-h-screen relative inset-0 bg-no-repeat bg-cover bg-center mt-[50px]`}
             >
-                <AppContextComponent session={JSON.parse(JSON.stringify(session))}>
+                <AppContextComponent session={parsedSession}>
                     <ContainerWrapper>
                         <HeaderBar />
                         <MessageComponent />

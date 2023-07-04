@@ -157,7 +157,7 @@ const SubmitHooks = ({
 
 const ServerReadHooks = () => {
     const RetrieveID = async (email: string) => {
-        await db.connect();
+     //   await db.connect();
         try {
             const user = await Users.findOne({ email: email })
             if (user) {
@@ -167,7 +167,7 @@ const ServerReadHooks = () => {
                 return null
             }
         } catch (error: any) {
-            console.log("ServerReadHooks error: ", error.message as string)
+            console.log("RetrieveID error: ", error.message as string)
         }
     }
     return {

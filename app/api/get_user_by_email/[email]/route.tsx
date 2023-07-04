@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { NextResponse, NextRequest } from 'next/server'
 interface paramsType {
     params: {
-        user_name: string,
+        email: string,
     } 
 }
 
@@ -14,7 +14,7 @@ interface userContext {
 export async function GET(req: NextRequest, { params } : paramsType) {
  //   await db.connect();
     try {
-        const user = await Users.findOne({ username: params.user_name })
+        const user = await Users.findOne({ email: params.email })
             .select('username email joinedDate posts profile_pic coverPhoto biography SocialMediaLinks message tasks')
             .populate({
                 path: "tasks",
