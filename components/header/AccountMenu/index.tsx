@@ -23,13 +23,14 @@ const AccountMenu = (): React.ReactElement => {
     } = useContext(HeaderBarContext) as HeaderBarType; 
 
     const checkIfClickedOutside = (evt: Event): void => {
-        var isMenuClosed = MenuRef.current?.classList.contains("fadeOut") || MenuRef.current?.classList.contains("firstFrame")
-        if (!isMenuClosed
+        const isMenuOpened = () => !MenuRef.current?.classList.contains("firstFrame") || !MenuRef.current?.classList.contains("fadeOut") 
+        if (isMenuOpened()
             && evt.target != MenuRef.current
             && evt.target != AccountLinkRef.current
             && !AccountLinkRef.current?.contains(evt.target as Node)
             && !MenuRef.current?.contains(evt.target as Node)
         ) {
+            MenuRef.current?.classList.remove("firstFrame")
             MenuRef.current?.classList.remove("fadeIn")
             MenuRef.current?.classList.add("fadeOut");
         }
@@ -42,15 +43,13 @@ const AccountMenu = (): React.ReactElement => {
         }
     }, [MenuRef.current])
 
-  //  const animationStyle = "fadeOut transition-all duration-1000 animationMode"
-
     const animationStyle = "transition-all duration-1000 animationMode"
 
     return (
         <div
             id="AccountMenu"
             ref={MenuRef}
-            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-10 firstFrame ${animationStyle}`}
+            className={`rounded-lg bg-slate-100 w-fit min-w-[180px] h-fit px-5 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-10 firstFrame ${animationStyle}`}
         >
             <Suspense fallback={<h2>Loading...</h2>}>
                 <MemberComponent
