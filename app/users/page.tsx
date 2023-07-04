@@ -13,7 +13,7 @@ const RenderList = dynamic(() => import("./renderList"), {
 }); 
 
 const RenderAllUsers = async (): Promise<JSX.Element> => {
-
+    await db.connect();
     const {
         RetrieveUsers, 
     } = UserServerHooks(); 
