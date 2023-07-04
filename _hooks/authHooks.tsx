@@ -79,7 +79,7 @@ const SubmitHooks = ({
         setLoading(true)
         await fetch(fetchUrl, {
             method: "POST", 
-            body: JSON.stringify({ username, email, password }),
+            body: JSON.stringify({ username, email: email.toLowerCase(), password }),
             headers: {
                 'Content-Type' : 'application/json', 
             }
@@ -160,7 +160,7 @@ const ServerReadHooks = () => {
     const RetrieveID = async (email: string) => {
      //   await db.connect();
         try {
-            const user = await Users.findOne({ email: email })
+            const user = await Users.findOne({ email: email.toLowerCase() })
             if (user) {
                 return user._id;
             }
@@ -174,7 +174,7 @@ const ServerReadHooks = () => {
 
     const ValidateCredentials = async ( email: any, password: any ) : Promise<boolean> => {
         try {
-            const fetchURL = `api/validate_cred/${email.toString()}/${password.toString()}`
+            const fetchURL = `api/validate_cred/${email.toLowerCase()}/${password}`
             //const response = await axios.get(`api/validate_cred/${email}/${password}`);
             //const result = response.data; 
             const response = await fetch(fetchURL, {

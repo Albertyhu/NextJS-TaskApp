@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
                     email,
                     password,
                 } = credentials;
-                const data = await Users.findOne({ email: email })
+                const data = await Users.findOne({ email: email.toLowerCase() })
                     .select("email password")
                 if (!data) {
                     return false; 
@@ -100,7 +100,7 @@ export const authOptions: NextAuthOptions = {
                 ObjectId = newUser._id; 
             }
             if (session.user.name === undefined) {
-                const data = await Users.findOne({ email: token.email })
+                const data = await Users.findOne({ email: token.email.toLowerCase() })
                     .select("username")
                 session.user.name = data.username;
             }
