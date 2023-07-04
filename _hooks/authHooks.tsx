@@ -1,12 +1,10 @@
 import Users from "@/model/user"; 
 import axios from 'axios'; 
 import db from '@/lib/mongooseConnect'
-import Client from '@/lib/mongodb'; 
 import { checkEmail } from '@/_hooks/checkEmail'; 
 import { NavigationHooks } from '@/_hooks/navigation'; 
 import { signIn } from 'next-auth/react'; 
 import {
-    ErrorMessageType,
     CreateNewAccountInt,
 } from "@/_util/interface"; 
 

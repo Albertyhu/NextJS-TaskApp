@@ -28,18 +28,6 @@ const MobileMenu = (): React.ReactElement => {
         MobileIconRef, 
     } = useContext(HeaderBarContext) as HeaderBarType; 
 
-    //const checkIfClickedOutside = (evt: React.MouseEvent<HTMLElement>): void => {
-    //    if (!MobileMenuRef?.current?.classList.contains("fadeOut")
-    //        && evt.target != MobileMenuRef.current
-    //        && evt.target != MobileIconRef.current
-    //        && !MobileIconRef?.current?.contains(evt.target)
-    //        && !MobileMenuRef?.current?.contains(evt.target)
-    //    ) {
-    //        MobileMenuRef?.current?.classList.remove("fadeIn")
-    //        MobileMenuRef?.current?.classList.add("fadeOut");
-    //    }
-    //}
-
     const checkIfClickedOutside = (evt : MouseEvent): void => {
         if (!MobileMenuRef?.current?.classList.contains("fadeOut")
             && evt.target != MobileMenuRef.current

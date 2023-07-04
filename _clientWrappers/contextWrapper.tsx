@@ -12,7 +12,7 @@ import {
     GlobalInterface, 
     taskType,
 } from "@/_util/interface"; 
-
+import { ReadHooks } from "@/_hooks/taskHooks";
 interface contextInterface {
     children: React.ReactNode, 
     session: SessionInterface | undefined,
@@ -35,6 +35,15 @@ const AppContextComponent = ({ children, session }: contextInterface ): React.Re
         taskList,
         setList, 
     } 
+    const userId = session?.user?.ObjectId; 
+
+    const { SetTaskListByUserID } = ReadHooks({ userId, setMessage, setLoading })
+
+    useEffect(() => {
+        if (session) {
+            SetTaskListByUserID({ setList })
+        }
+    }, [session])
 
     return (
         <AppContext.Provider value={context}>

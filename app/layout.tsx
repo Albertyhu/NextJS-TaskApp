@@ -36,7 +36,9 @@ export default async function RootLayout({
                     <ContainerWrapper>
                         <HeaderBar />
                         <MessageComponent />
-                        {children}
+                        <main className="flex min-h-screen flex-col items-center">
+                            {children}
+                        </main>
                     </ContainerWrapper>
                 </AppContextComponent>
             </body>
