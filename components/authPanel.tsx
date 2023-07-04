@@ -4,6 +4,7 @@ import Panel from './panel';
 import {
     GoogleRegistrationButton,
     GithubRegistrationButton,
+    GoSignUp,
 } from "./button";
 import { signIn } from "next-auth/react"
 export default function AuthPanel() {
@@ -27,6 +28,8 @@ export default function AuthPanel() {
             >
                 Sign into an account
             </button>
+            <hr className = "border-2 bg-slate-500 w-11/12 mx-auto my-10"/>
+            <GoSignUp customStyle ="mx-auto" />
         </Panel>
     )
 }
