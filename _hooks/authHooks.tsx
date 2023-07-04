@@ -5,6 +5,10 @@ import Client from '@/lib/mongodb';
 import { checkEmail } from '@/_hooks/checkEmail'; 
 import { NavigationHooks } from '@/_hooks/navigation'; 
 import { signIn } from 'next-auth/react'; 
+import {
+    ErrorMessageType,
+    CreateNewAccountInt,
+} from "@/_util/interface"; 
 
 type messageType = {
     param?: string, 
@@ -152,6 +156,7 @@ const SubmitHooks = ({
     }
 
 }
+
 const ServerReadHooks = () => {
     const RetrieveID = async (email: string) => {
         await db.connect();
@@ -163,8 +168,8 @@ const ServerReadHooks = () => {
             else {
                 return null
             }
-        } catch (error) {
-            console.log("ServerReadHooks error: ", error.message)
+        } catch (error: any) {
+            console.log("ServerReadHooks error: ", error.message as string)
         }
     }
     return {
@@ -173,7 +178,7 @@ const ServerReadHooks = () => {
 }
 
 const ServerWriteHooks = () => {
-    const CreateNewAccount = async ({ name, email, image }) => {
+    const CreateNewAccount = async ({ name, email, image }: CreateNewAccountInt) => {
         const userObj = {
             username: name, 
             email, 
@@ -181,7 +186,7 @@ const ServerWriteHooks = () => {
         const result = new Users(userObj)
 
         const newUser = await result.save()
-            .catch(error => {
+            .catch((error: any) => {
                 throw new Error(error)
             })
         return newUser; 

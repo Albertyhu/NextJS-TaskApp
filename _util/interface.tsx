@@ -83,7 +83,7 @@ export interface SessionInterface {
         name: string,
         email: string,
         image: string,
-        ObjectId: string | null,
+        ObjectId: string,
     },
     token: userInterface,
 }
@@ -97,3 +97,13 @@ export interface EditTaskContext {
     index: number,
 }
 
+
+export type ErrorMessageType = {
+    message: string, 
+}
+
+export interface CreateNewAccountInt {
+    name: string | null |undefined,
+    email: string | null | undefined,
+    image: any | undefined,
+}

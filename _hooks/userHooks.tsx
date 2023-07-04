@@ -44,8 +44,8 @@ const UserHooks = () => {
             else {
                 console.log("RetrieveUsers failed: ", result.error)
             }
-        } catch (e) {
-            console.log("RetrieveUsers error: ", e.message)
+        } catch (e: any) {
+            console.log("RetrieveUsers error: ", e.message as string)
         }
     }
 
@@ -117,7 +117,7 @@ const UserHooks = () => {
 }
 
 const UserServerHooks = () => {
-    const RetrieveUsers = async (): Promise<Array<userInterface>> => {
+    const RetrieveUsers = async () => {
         await db.connect();
         try {
             const users = await Users.find({})
@@ -126,6 +126,7 @@ const UserServerHooks = () => {
 
         } catch (e) {
             console.log("Get Request Error: ", e)
+            return [];
         }
     }
     return {RetrieveUsers}

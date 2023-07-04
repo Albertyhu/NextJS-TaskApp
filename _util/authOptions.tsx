@@ -4,7 +4,8 @@ import GitHubProvider from "next-auth/providers/github";
 import {
     ServerReadHooks,
     ServerWriteHooks,
-} from '@/_hooks/authHooks'
+} from '@/_hooks/authHooks';
+import { CreateNewAccountInt } from '@/_util/interface'
 
 const { RetrieveID } = ServerReadHooks(); 
 const { CreateNewAccount } = ServerWriteHooks(); 
@@ -13,12 +14,12 @@ export const authOptions : NextAuthOptions = {
     // Configure one or more authentication providers
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string, 
         }),
         GitHubProvider({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET
+            clientId: process.env.GITHUB_ID as string,
+            clientSecret: process.env.GITHUB_SECRET as string,
         })
     ],
     session: {
@@ -35,14 +36,13 @@ export const authOptions : NextAuthOptions = {
             return baseUrl
         },
         async session({ session, user, token }) {
-            let ObjectId = await RetrieveID(token.email);
+            let ObjectId = await RetrieveID(token.email as string);
+            
             if (ObjectId === null) {
-                const {
-                    name,
-                    email,
-                    image, 
-                } = token; 
-                const newUser = await CreateNewAccount({ name, email, image })
+                const name = token.name;
+                const email = token.email;
+                const image = token.picture; 
+                const newUser = await CreateNewAccount ({ name, email, image })
                 ObjectId = newUser._id; 
             }
             session.user.ObjectId = ObjectId;  

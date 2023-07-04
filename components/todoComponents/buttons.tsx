@@ -30,7 +30,7 @@ const AddTaskButton = (props: AddTaskButtonContext ): React.ReactElement => {
         session, 
     } = useContext(AppContext) as GlobalInterface; 
 
-    const userId = session?.user.ObjectId 
+    const userId = session?.user.ObjectId as string;
 
     const { AddTask } = WriteHooks({ userId, setMessage, setList, setLoading})
     return (
@@ -56,7 +56,7 @@ const DeleteTaskBTN = (props : DeleteProps): React.ReactElement => {
         taskList, 
         setList, 
     } = useContext(AppContext) as GlobalInterface;
-    const userId = session?.user.ObjectId; 
+    const userId : string | undefined = session?.user.ObjectId; 
     const { DeleteTask } = WriteHooks({ userId, setMessage, setList, setLoading })
     const IconStyle = {
         color: "#ffffff", 
@@ -74,7 +74,14 @@ const DeleteTaskBTN = (props : DeleteProps): React.ReactElement => {
     )
 }
 
-const EditBTN = (props): React.ReactElement => {
+type EditType = {
+    taskId: string,
+    name: string,
+    setEdit: (c: boolean)=>void,
+    index: number, 
+}
+
+const EditBTN = (props: EditType): React.ReactElement => {
     const {
         taskId,
         name, 

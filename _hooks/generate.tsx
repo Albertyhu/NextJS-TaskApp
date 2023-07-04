@@ -1,12 +1,7 @@
 import axios from 'axios'; 
 
-type generateTasksForUser = {
-    userId: string, 
-    num: string, 
-}
-
 const GenerateHooks = () => {
-    const generateTasksForUser = async (userId, num ) => {
+    const generateTasksForUser = async (userId: string, num: number) => {
         const fetchURL = `api/generate/generate_tasks_for_user/${userId}`; 
         const data = {
             num, 

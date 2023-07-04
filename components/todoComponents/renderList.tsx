@@ -38,7 +38,6 @@ const RenderList: React.FC = () : React.ReactElement<any> => {
 interface ItemProps {
     index: number, 
     name: string,
-    dateCreated: number,
     finished?: boolean,
     _id: string, 
 }
@@ -46,7 +45,6 @@ interface ItemProps {
 const ListItem = (props: ItemProps): React.ReactElement => {
     const {
         name, 
-        dateCreated, 
         finished, 
         _id, 
         index,
