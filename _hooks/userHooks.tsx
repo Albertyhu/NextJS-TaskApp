@@ -119,7 +119,7 @@ const UserHooks = () => {
 const UserServerHooks = () => {
     const RetrieveUsers = async () => {
         try {
-            await db.connect();
+           // await db.connect();
             const users = await Users.find({})
                 .select('username email joinedDate posts profile_pic coverPhoto biography SocialMediaLinks message')
             return users;
