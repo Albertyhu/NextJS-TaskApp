@@ -10,7 +10,7 @@ import { CreateNewAccountInt } from '@/_util/interface'
 const { RetrieveID } = ServerReadHooks(); 
 const { CreateNewAccount } = ServerWriteHooks(); 
 
-export const authOptions : NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
     // Configure one or more authentication providers
     providers: [
         GoogleProvider({
@@ -32,9 +32,9 @@ export const authOptions : NextAuthOptions = {
         async signIn({ user, account, profile, email, credentials }) {
             return true
         },
-        //async redirect({ url, baseUrl }) {
-        //    return baseUrl
-        //},
+        async redirect({ url, baseUrl }) {
+            return baseUrl
+        },
         async session({ session, user, token }) {
             let ObjectId = await RetrieveID(token.email as string);
             
