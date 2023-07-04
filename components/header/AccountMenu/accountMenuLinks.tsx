@@ -39,7 +39,7 @@ const SignOutLink = (props : context): React.ReactElement => {
                 router.push("/")
                 closeMenu(element);
             }}
-            className={`${customStyle != "" ? customStyle : "text-center mx-auto select-none"}`}
+            className={`${customStyle != "" ? customStyle : "select-none"}`}
         >Sign Out</div>
     )
 }
@@ -56,7 +56,7 @@ const CloseMenuLink = (props: context) : React.ReactElement => {
     return (
         <div
             onClick={useCallback(() => closeMenu(element), [])}
-            className={`${customStyle != "" ? customStyle : "text-center mx-auto select-none"}`}
+            className={`${customStyle != "" ? customStyle : "select-none"}`}
         >Close Menu</div>
     )
 }

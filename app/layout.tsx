@@ -32,7 +32,7 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body
-            className={`w-full h-full min-h-screen relative inset-0 bg-no-repeat bg-cover bg-center mt-[50px]`}
+            className={`w-full h-full min-h-screen relative inset-0 bg-no-repeat bg-cover bg-center mt-[95px]`}
             >
                 <AppContextComponent session={parsedSession}>
                     <ContainerWrapper>

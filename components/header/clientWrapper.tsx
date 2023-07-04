@@ -14,11 +14,6 @@ type wrapperType = {
 }
 
 const Wrapper = ({ children }: wrapperType) => {
-    //const MenuRef = useRef<React.RefObject<HTMLDivElement>>(null);
-    //const MobileMenuRef = useRef<React.RefObject<HTMLDivElement>>(null)
-    //const MobileIconRef = useRef<React.RefObject<HTMLDivElement>>(null)
-    //const AccountLinkRef = useRef<React.RefObject<HTMLDivElement>>(null);
-
     const MenuRef = useRef<HTMLDivElement>(null);
     const MobileMenuRef = useRef<HTMLDivElement>(null)
     const MobileIconRef = useRef<HTMLImageElement>(null)
