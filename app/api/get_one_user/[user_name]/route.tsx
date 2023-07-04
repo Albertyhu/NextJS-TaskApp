@@ -24,7 +24,7 @@ export async function GET(req: NextRequest, { params } : paramsType) {
             })
         return new NextResponse(JSON.stringify(user), { status: 200 })
     } catch (e) {
-        console.log("Get Request Error: ", e)
+        console.log("Get_One_user Request Error: ", e)
         return new NextResponse(JSON.stringify(null),  { status: 500 })
     }
 }

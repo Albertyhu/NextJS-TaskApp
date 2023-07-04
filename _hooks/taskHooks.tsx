@@ -39,7 +39,6 @@ export const WriteHooks = ({userId, setMessage, setList, setLoading }: WriteInte
                         throw new Error(error)
                     })
                 const result = await response.data;
-                console.log("result: ", result)
                 var arr = [result, ...taskList]; 
                 setList(arr); 
                 setOpenPrompt(false)

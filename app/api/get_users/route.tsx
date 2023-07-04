@@ -9,7 +9,7 @@ export async function GET(req: Request) {
         return new Response(JSON.stringify(users), {status: 200})
 
     } catch (e) {
-        console.log("Get Request Error: ", e)
+        console.log("Get_Users Error: ", e)
         return new Response(JSON.stringify({error: e}), { status: 500})
     }
 } 

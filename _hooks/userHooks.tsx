@@ -118,14 +118,14 @@ const UserHooks = () => {
 
 const UserServerHooks = () => {
     const RetrieveUsers = async () => {
-        await db.connect();
         try {
+            await db.connect();
             const users = await Users.find({})
                 .select('username email joinedDate posts profile_pic coverPhoto biography SocialMediaLinks message')
             return users;
 
         } catch (e) {
-            console.log("Get Request Error: ", e)
+            console.log("Retrieve Error: ", e)
             return [];
         }
     }
