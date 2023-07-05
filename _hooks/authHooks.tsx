@@ -94,7 +94,6 @@ const SubmitHooks = ({
                         email: result.email,
                         name: result.username,
                         password,
-                        image: result.profile_pic,
                         ObjectId: result._id,
                         isNewUser: true,
                     })

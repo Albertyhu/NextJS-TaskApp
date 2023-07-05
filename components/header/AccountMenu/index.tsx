@@ -30,7 +30,6 @@ const AccountMenu = (): React.ReactElement => {
             && !AccountLinkRef.current?.contains(evt.target as Node)
             && !MenuRef.current?.contains(evt.target as Node)
         ) {
-            MenuRef.current?.classList.remove("firstFrame")
             MenuRef.current?.classList.remove("fadeIn")
             MenuRef.current?.classList.add("fadeOut");
         }

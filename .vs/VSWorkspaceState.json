@@ -2,15 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\about",
-    "\\app\\users",
+    "\\app\\api",
+    "\\app\\api\\auth",
+    "\\app\\api\\auth\\register",
+    "\\app\\api\\get_user_by_email",
+    "\\app\\api\\get_user_by_email\\[email]",
     "\\components",
-    "\\components\\ui",
-    "\\_assets",
-    "\\_assets\\images",
-    "\\_hooks",
-    "\\_util"
+    "\\components\\header",
+    "\\components\\header\\AccountMenu",
+    "\\_clientWrappers"
   ],
-  "SelectedNode": "\\tsconfig.json",
+  "SelectedNode": "\\components\\header\\AccountMenu\\index.tsx",
   "PreviewInSolutionExplorer": false
 }

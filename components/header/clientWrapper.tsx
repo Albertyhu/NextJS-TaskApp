@@ -21,8 +21,9 @@ const Wrapper = ({ children }: wrapperType) => {
 
 
     const openMenu = (element: HTMLDivElement | null): void => {
-        if (!element?.classList.contains("fadeIn"))
+        if (!element?.classList.contains("fadeIn")) 
             element?.classList.remove("fadeOut")
+        element?.classList.remove("firstFrame")
         element?.classList.add("fadeIn")
     }
 

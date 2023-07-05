@@ -35,6 +35,7 @@ const MobileMenu = (): React.ReactElement => {
 
     const checkIfClickedOutside = (evt : MouseEvent): void => {
         if (!MobileMenuRef?.current?.classList.contains("fadeOut")
+            &&!MobileMenuRef?.current?.classList.contains("firstFrame")
             && evt.target != MobileMenuRef.current
             && evt.target != MobileIconRef.current
             && !MobileIconRef?.current?.contains(evt.target as Node)
@@ -52,12 +53,12 @@ const MobileMenu = (): React.ReactElement => {
         }
     }, [MobileMenuRef.current])
 
-    const animationStyle = "fadeOut transition-all duration-1000 animationMode"
+    const animationStyle = "transition-all duration-1000 animationMode"
 
     return (
         <div
             id="MobileMenu"
-            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-10 ${animationStyle}`}
+            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-10 firstFrame ${animationStyle}`}
             ref={MobileMenuRef}
         >
             <GoAboutPageLink />
