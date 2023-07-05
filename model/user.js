@@ -8,7 +8,7 @@ const User = new Schema({
     password: { type: String}, 
     joinedDate: { type: Date }, 
     posts: [{ type: Schema.Types.ObjectId, ref: "Post" }], 
-    profile_pic: { data: Buffer, contentType: String },
+/*    profile_pic: { data: Buffer, contentType: String },*/
     biography: { type: String },
     SocialMediaLinks: [{
         platform: { type: String },
