@@ -4,10 +4,11 @@ export interface userInterface {
     email?: string,
     joinedDate: Date,
     posts?: Array<any> | null,
-    profile_pic?: {
-        data: Buffer | null | undefined,
-        contentType: String | null | undefined,
-    } | null,
+    //profile_pic?: {
+    //    data: Buffer | null | undefined,
+    //    contentType: String | null | undefined,
+    //} | null,
+    profile_pic?: any,
     biography?: String | null,
     SocialMediaLinks?: Array<any> | null,
     coverPhoto?: { data: Buffer, contentType: String } | null,
