@@ -22,7 +22,7 @@ const RenderSection = (props : AddProps) : React.ReactElement => {
     return (
         <div
             id="AddTaskPanel"
-            className = 'flex my-10 gap-5'
+            className = 'grid md:flex my-10 gap-5'
         >
             <TextInput
                 label="Add a new task"
@@ -31,16 +31,20 @@ const RenderSection = (props : AddProps) : React.ReactElement => {
                 placeHolderText="Enter new task"
                 type="text"
             />
-            <AddTaskButton
-                newTask={newTask}
-                setOpenPrompt={setOpenPrompt} 
-            />
-            <button
-                className="btn-cancel my-auto"
-                onClick={() => setOpenPrompt(false)}
+            <div
+                className="block mx-auto [&>*]:inline-block [&>*]:mx-1 md:flex md:[&>*]:mx-1"
             >
-                Cancel
-            </button>
+                <AddTaskButton
+                    newTask={newTask}
+                    setOpenPrompt={setOpenPrompt} 
+                />
+                <button
+                    className="btn-cancel my-auto"
+                    onClick={() => setOpenPrompt(false)}
+                >
+                    Cancel
+                </button>
+            </div>
         </div>
     )
 }

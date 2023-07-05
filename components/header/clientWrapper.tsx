@@ -28,6 +28,7 @@ const Wrapper = ({ children }: wrapperType) => {
     }
 
     const closeMenu = (element: HTMLDivElement | null): void => {
+        console.log("fired")
         if (!element?.classList.contains("fadeOut"))
             element?.classList.remove("fadeIn")
         element?.classList.add("fadeOut")

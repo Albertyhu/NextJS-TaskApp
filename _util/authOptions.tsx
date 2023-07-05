@@ -95,7 +95,7 @@ export const authOptions: NextAuthOptions = {
             if (ObjectId === null) {
                 const name = token.name;
                 const email = token.email;
-                const newUser = await CreateNewAccount({ name, email, image })
+                const newUser = await CreateNewAccount({ name, email})
                 ObjectId = newUser._id; 
             }
             if (session.user.name === undefined) {

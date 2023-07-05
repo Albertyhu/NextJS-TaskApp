@@ -23,8 +23,8 @@ const AccountMenu = (): React.ReactElement => {
     } = useContext(HeaderBarContext) as HeaderBarType; 
 
     const checkIfClickedOutside = (evt: Event): void => {
-        const isMenuOpened = () => !MenuRef.current?.classList.contains("firstFrame") || !MenuRef.current?.classList.contains("fadeOut") 
-        if (isMenuOpened()
+        if (!MenuRef.current?.classList.contains("fadeOut") 
+            && MenuRef.current?.classList.contains("fadeIn") 
             && evt.target != MenuRef.current
             && evt.target != AccountLinkRef.current
             && !AccountLinkRef.current?.contains(evt.target as Node)

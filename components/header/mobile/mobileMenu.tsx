@@ -19,7 +19,7 @@ import {
 const MemberComponent = dynamic(()=>import("../memberComponent"), {
     loading: () => <LoadingComponent entirePage={false} />
 })
-const GuestComponent  = dynamic(()=>import("../guestComponent"), {
+const GuestComponent  = dynamic(()=>import("./guestComponent"), {
     loading: () => <LoadingComponent entirePage={false} />
 }) 
 const MobileMenu = (): React.ReactElement => {
@@ -35,7 +35,7 @@ const MobileMenu = (): React.ReactElement => {
 
     const checkIfClickedOutside = (evt : MouseEvent): void => {
         if (!MobileMenuRef?.current?.classList.contains("fadeOut")
-            &&!MobileMenuRef?.current?.classList.contains("firstFrame")
+            &&MobileMenuRef?.current?.classList.contains("fadeIn")
             && evt.target != MobileMenuRef.current
             && evt.target != MobileIconRef.current
             && !MobileIconRef?.current?.contains(evt.target as Node)
@@ -58,14 +58,14 @@ const MobileMenu = (): React.ReactElement => {
     return (
         <div
             id="MobileMenu"
-            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-10 firstFrame ${animationStyle}`}
+            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-5 firstFrame ${animationStyle}`}
             ref={MobileMenuRef}
         >
             <GoAboutPageLink />
             {session ? 
                 <MemberComponent element={MobileMenuRef?.current} />    
                 :
-                <GuestComponent />
+                <GuestComponent element={MobileMenuRef?.current} />
             }
         </div>
     )

@@ -2,7 +2,7 @@ import db from '@/lib/mongooseConnect';
 import Users from '@/model/user';
 
 export async function GET(req: Request) {
-   // await db.connect(); 
+    await db.connect(); 
     try {
         const users = await Users.find({})
             .select('username email joinedDate posts profile_pic coverPhoto biography SocialMediaLinks message')

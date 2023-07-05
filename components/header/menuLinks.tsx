@@ -54,13 +54,13 @@ const GoSignInLink = (): React.ReactElement => {
 
 const GoSignUpLink = (): React.ReactElement => {
     const router = useRouter()
+    const closeMenu = () => { }
     return (
         <div
             className="block md:inline-block"
             onClick={() => router.push("/signup")}>Sign Up</div>
     )
 }
-
 
 const GoAboutPageLink = (): React.ReactElement => {
     const router = useRouter()

@@ -199,7 +199,7 @@ const ServerReadHooks = () => {
 }
 
 const ServerWriteHooks = () => {
-    const CreateNewAccount = async ({ name, email, image }: CreateNewAccountInt) => {
+    const CreateNewAccount = async ({ name, email}: CreateNewAccountInt) => {
         const userObj = {
             username: name, 
             email, 

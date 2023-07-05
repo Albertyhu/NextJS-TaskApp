@@ -105,7 +105,6 @@ export type ErrorMessageType = {
 export interface CreateNewAccountInt {
     name: string | null |undefined,
     email: string | null | undefined,
-    image: any | undefined,
 }
 
 

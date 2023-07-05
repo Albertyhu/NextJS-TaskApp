@@ -12,19 +12,21 @@
     }*/
     100% {
         opacity: 1.0;
+        display: none;
     }
 }
 
 @keyframes fadeOutFrames {
     0% {
         opacity: 1.0;
+        display: grid; 
     }
 /*    50% {
         opacity: 0.5;
     }*/
     100% {
         opacity: 0.0;
-        display: hidden
+        display: none;
     }
 }
 
@@ -37,14 +39,16 @@
 .fadeIn { 
     animation-name: fadeInFrames; 
     animation-duration: var(--MenuDur); 
+    display: grid; 
 }
 
 .fadeOut {
     animation-name: fadeOutFrames;
     animation-duration: var(--MenuDur);
+    display: none;
 }
 
 .firstFrame {
     opacity: 0.0;
-    display: hidden
+    display: none;
 }
