@@ -58,7 +58,7 @@ const MobileMenu = (): React.ReactElement => {
     return (
         <div
             id="MobileMenu"
-            className={`rounded-lg bg-slate-100 w-fit h-fit px-10 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-5 firstFrame ${animationStyle}`}
+            className={`rounded-lg bg-slate-100 w-fit h-fit px-5 py-1 absolute left-auto right-[0px] top-[50px] cursor-pointer box_shadow [&>div]:text-slate-500 [&>div]:my-5 firstFrame ${animationStyle}`}
             ref={MobileMenuRef}
         >
             <GoAboutPageLink />

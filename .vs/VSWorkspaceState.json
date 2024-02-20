@@ -2,16 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\api",
-    "\\app\\api\\auth",
-    "\\app\\api\\auth\\register",
-    "\\app\\api\\get_user_by_email",
-    "\\app\\api\\get_user_by_email\\[email]",
     "\\components",
-    "\\components\\header",
-    "\\components\\header\\AccountMenu",
-    "\\_clientWrappers"
+    "\\lib",
+    "\\model",
+    "\\public",
+    "\\_util"
   ],
-  "SelectedNode": "\\components\\header\\AccountMenu\\index.tsx",
   "PreviewInSolutionExplorer": false
 }
